@@ -8,20 +8,21 @@ const Container = styled.div`
     align-items: center;
     transform-style: preserve-3d; /* 이것을 설정해 주어야 rotate를 했을 때 3d의 형태로 보인다. */
     :hover{
-    }
-    animation: rotateBox 5s forwards linear;
-    @keyframes rotateBox{
-        from{
-            transform: rotateX(0deg) rotateY(0deg);
-        }
-        to{
-            transform: rotateX(360deg) rotateY(360deg);
+        animation: rotateBox 5s forwards linear;
+        @keyframes rotateBox{
+            from{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
         }
     }
 `;
 
 const Front = styled.div`
-    background-color: ${props => props.frontBg ? props.frontBg : "black"};
+    border: solid 2px black;
+    background-color: ${props => props.frontBg ? props.frontBg : props.bgColorAll};
     width: ${props => props.width};
     height: ${props => props.width};
     position: absolute;
@@ -29,7 +30,8 @@ const Front = styled.div`
 `;
 
 const Back = styled.div`
-    background-color: white;
+      border: solid 2px black;
+    background-color: ${props => props.backBg ? props.backBg : props.bgColorAll};
     width: ${props => props.width};
     height: ${props => props.width};
     position: absolute;
@@ -37,7 +39,8 @@ const Back = styled.div`
 `;
 
 const Bottom = styled.div`
-    background-color: black;
+      border: solid 2px black;
+    background-color: ${props => props.bottomBg ? props.bottomBg : props.bgColorAll};
     width: ${props => props.width};
     height: ${props => props.width};
     position:absolute;
@@ -46,7 +49,8 @@ const Bottom = styled.div`
 `;
 
 const Top = styled.div`
-    background-color: black;
+      border: solid 2px black;
+    background-color: ${props => props.topBg ? props.topBg : props.bgColorAll};
     width: ${props => props.width};
     height: ${props => props.width};
     position:absolute;
@@ -55,7 +59,8 @@ const Top = styled.div`
 `;  
 
 const Left = styled.div`
-    background-color: ${props => props.leftBg ? props.leftBg : "black"};
+      border: solid 2px black;
+    background-color: ${props => props.leftBg ? props.leftBg : props.bgColorAll};
     width: ${props => props.width};
     height: ${props => props.width};
     position:absolute;
@@ -63,7 +68,8 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-    background-color: black;
+      border: solid 2px black;
+    background-color: ${props => props.rightBg ? props.rightBg : props.bgColorAll};
     width: ${props => props.width};
     height: ${props => props.width};
     position:absolute;
@@ -79,19 +85,24 @@ const Cube = ({
     left, 
     right, 
     frontBg, 
-    leftBg
+    leftBg,
+    backBg,
+    bottomBg,
+    topBg,
+    rightBg,
+    bgColorAll
 }) => {
 
     console.log(width);
 
     return(
     <Container width={width}>
-        <Front width={width} frontBg={frontBg}>{front}</Front>
-        <Back width={width}>{back}</Back>
-        <Bottom width={width}>{bottom}</Bottom>
-        <Top width={width}>{top}</Top>
-        <Left width={width} leftBg={leftBg}>{left}</Left>
-        <Right width={width}>{right}</Right>
+        <Front width={width} frontBg={frontBg} bgColorAll={bgColorAll || "black"} >{front}</Front>
+        <Back width={width} backBg={backBg} bgColorAll={bgColorAll || "black"} >{back}</Back>
+        <Bottom width={width} bottomBg={bottomBg} bgColorAll={bgColorAll || "black"} >{bottom}</Bottom>
+        <Top width={width} topBg={topBg} bgColorAll={bgColorAll || "black"} >{top}</Top>
+        <Left width={width} leftBg={leftBg} bgColorAll={bgColorAll || "black"} >{left}</Left>
+        <Right width={width} rightBg={rightBg} bgColorAll={bgColorAll || "black"} >{right}</Right>
     </Container>
     )
 
@@ -99,3 +110,5 @@ const Cube = ({
 
 
 export default Cube;
+
+// 사용 시 부모 태그로 감싸 주어 위치를 조정해야함
