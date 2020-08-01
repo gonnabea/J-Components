@@ -39,7 +39,7 @@ padding: 0;
     -1px 1px 0 #000,
     1px 1px 0 #000;  
     color: white;
-    font-size: 30px;
+    font-size: ${props => props.fontSize ? props.fontSize : "30px"};
     width: fit-content;
     :hover{
         position: relative;
@@ -68,12 +68,12 @@ padding: 0;
 `
 
 const Image = styled.img`
-    width: 200px;
-    height: 200px;
+    width: ${props => props.imageWidth ? props.imageWidth : "200px"};
+    height: ${props => props.imageWidth ? props.imageWidth : "200px"};
 `
 
 
-const MarqueeMenu = ({names, links, imageSrc}) => {
+const AwesomeMenu = ({names, links, imageSrc, fontSize, imageWidth}) => {
     
     const init = (names) => {
         console.log(names);
@@ -82,9 +82,9 @@ const MarqueeMenu = ({names, links, imageSrc}) => {
 
             return (
             <A href={links[index]}>
-                <Text name={name}>{name}</Text>
+                <Text fontSize={fontSize} name={name}>{name}</Text>
                 <div>
-                <Image src={imageSrc[index]} />
+                <Image imageWidth={imageWidth} src={imageSrc[index]} />
                 </div>
             </A>
             )
@@ -101,6 +101,6 @@ const MarqueeMenu = ({names, links, imageSrc}) => {
  )
 }
 
-export default MarqueeMenu;
+export default AwesomeMenu;
 
 // 사용법 : names, links, imageSrc,를 각각 배열의 형태로 데이터를 보내준다.

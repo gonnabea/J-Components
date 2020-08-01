@@ -5,5 +5,6 @@
 
 ## 목록
 
-- [ ] 3D 정육면체 
-- [ ] List Selector
+- [x] 3D 정육면체 
+- [x] List Selector
+- [x] Awesome Menu
