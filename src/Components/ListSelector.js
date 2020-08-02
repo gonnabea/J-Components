@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const Container = styled.section`
-    width: 100%;
-    height: 100%;
+    width: ${props => props.width ? props.width : "100px"};
+    height: ${props => props.height ? props.height : "100px"};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +42,7 @@ const InfoArea = styled.div`
 `; // this is optional
 
 
-class Selector extends Component {
+class ListSelector extends Component {
     state = {
         controlArea: null,
         contents: null,
@@ -77,7 +77,7 @@ class Selector extends Component {
 }
 
     render(){
-        return  <Container>
+        return  <Container width={this.props.width} height="100%">
             <Contents id="slider" width={this.props.width} height="90%">
                 {this.props.contents}
             </Contents>
@@ -96,4 +96,4 @@ class Selector extends Component {
 
 
 
-export default Selector;
+export default ListSelector;

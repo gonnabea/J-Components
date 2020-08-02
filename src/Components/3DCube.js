@@ -8,7 +8,7 @@ const Container = styled.div`
     align-items: center;
     transform-style: preserve-3d; /* 이것을 설정해 주어야 rotate를 했을 때 3d의 형태로 보인다. */
     :hover{
-        animation: rotateBox 5s forwards linear;
+        animation: rotateBox 1s forwards linear;
         @keyframes rotateBox{
             from{
                 transform: rotateX(0deg) rotateY(0deg);
