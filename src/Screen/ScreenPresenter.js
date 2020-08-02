@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AwesomeMenu from "../Components/AwesomeMenu";
 import ListSelector from "../Components/ListSelector";
 import CircleButton from "../Components/CircleButton";
+import NeonLineButton from "../Components/NeonLineButton";
 
 const Container = styled.section`
     width: 100vw;
@@ -11,6 +12,7 @@ const Container = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
 `;
 
 const SelectorContainer = styled.div`
@@ -34,7 +36,8 @@ const ScreenPresenter = () => <Container>
         />
 
     } /> */}
-    <CircleButton width="100px" text="submit" />
+    {/* <CircleButton width="100px" text="submit" /> */}
+    <NeonLineButton width="100px" text="Home" color="yellowgreen"/>
 </Container>
 
 export default ScreenPresenter;
