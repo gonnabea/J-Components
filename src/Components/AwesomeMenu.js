@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
 
 const Container = styled.section`
 `;
@@ -99,6 +101,14 @@ const AwesomeMenu = ({names, links, imageSrc, fontSize, imageWidth}) => {
     {init(names, links, imageSrc)}
 </Container>
  )
+}
+
+AwesomeMenu.propTypes = {
+    names: PropTypes.array,
+    links: PropTypes.array,
+    imageSrc: PropTypes.array,
+    fontSize: PropTypes.string,
+    imageWidth: PropTypes.string
 }
 
 export default AwesomeMenu;

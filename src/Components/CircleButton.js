@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Button = styled.button`
     width: ${props => props.width ? props.width :"100px"};
@@ -34,5 +35,11 @@ const Button = styled.button`
 const CircleButton = ({width, text}) => <Button width={width} text={text}>
     {text ? text : "Use Text attr"}
 </Button>
+
+CircleButton.propTypes = {
+    width: PropTypes.string,
+    text: PropTypes.string
+}
+
 
 export default CircleButton;

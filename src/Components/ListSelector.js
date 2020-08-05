@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Container = styled.section`
     width: ${props => props.width ? props.width : "100px"};
@@ -92,6 +93,10 @@ class ListSelector extends Component {
 }
 
 
+ListSelector.propTypes = {
+    info: PropTypes.string,
+contents: PropTypes.element
+}
 
 
 

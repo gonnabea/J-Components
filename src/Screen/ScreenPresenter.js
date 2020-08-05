@@ -27,7 +27,7 @@ const ScreenPresenter = () => <Container>
     imageWidth="300px"
     fontSize="80px"
     />
-    {/* <Cube width="500px" bgColorAll="skyblue" front={
+    {/* <Cube width="200px" bgColorAll="skyblue" front={
         <AwesomeMenu names={["test1", "test2", "test3"]} 
         links={["/1", "/2"]} 
         imageSrc={["/No_Image.jpg", "/No_Image.jpg", "/No_Image.jpg"]}  
@@ -37,7 +37,10 @@ const ScreenPresenter = () => <Container>
 
     } /> */}
     {/* <CircleButton width="100px" text="submit" /> */}
+    <NeonLineButton width="100px" text="Home" color="#45E7B6"/>
+    <NeonLineButton width="100px" text="Home"/>
     <NeonLineButton width="100px" text="Home" color="yellowgreen"/>
+    <CircleButton />
 </Container>
 
 export default ScreenPresenter;
