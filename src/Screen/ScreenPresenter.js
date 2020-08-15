@@ -6,6 +6,8 @@ import ListSelector from "../Components/ListSelector"
 import CircleButton from "../Components/CircleButton"
 import NeonLineButton from "../Components/NeonLineButton"
 import CardUI from "../Components/CardUI"
+import Slider3D from "../Components/Slider3D"
+import Book from "../Components/3DBook"
 
 const Container = styled.section`
   width: 100vw;
@@ -26,13 +28,13 @@ const CardContainer = styled.div`
 
 const ScreenPresenter = () => (
   <Container>
-    <AwesomeMenu
+    {/* <AwesomeMenu
       names={["안녕하세요", "test2", "test3"]}
       links={["/1", "/2"]}
       imageSrc={["/No_Image.jpg", "/No_Image.jpg", "/No_Image.jpg"]}
       imageWidth="300px"
       fontSize="80px"
-    />
+    /> */}
     {/* <Cube width="200px" bgColorAll="skyblue" front={
         <AwesomeMenu names={["test1", "test2", "test3"]} 
         links={["/1", "/2"]} 
@@ -43,20 +45,8 @@ const ScreenPresenter = () => (
 
     } /> */}
     {/* <CircleButton width="100px" text="submit" /> */}
-    <NeonLineButton width="100px" text="Home" color="#45E7B6" />
-    <NeonLineButton width="100px" text="Home" />
-    <NeonLineButton width="100px" text="Home" color="yellowgreen" />
-    <CircleButton />
-    <CardUI
-      main={<img style={{ width: "200px", height: "200px" }} src="/No_Image.jpg" alt="example" />}
-      textArea={
-        <CardContainer>
-          <div>Title</div>
-          <div>descriptions</div>
-        </CardContainer>
-      }
-      backgroundColor="blue"
-    />
+
+    <Book />
   </Container>
 )
 
