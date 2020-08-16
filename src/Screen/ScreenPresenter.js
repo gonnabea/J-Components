@@ -26,6 +26,8 @@ const CardContainer = styled.div`
   flex-direction: column;
 `
 
+const FrontContainer = styled.div``
+
 const ScreenPresenter = () => (
   <Container>
     {/* <AwesomeMenu
@@ -46,7 +48,30 @@ const ScreenPresenter = () => (
     } /> */}
     {/* <CircleButton width="100px" text="submit" /> */}
 
-    <Book />
+    <Book
+      width="300px"
+      height="450px"
+      front={<img src="/logo512.png" style={{ width: "100%", height: "100%" }} alt="book" />}
+      inside1={<div>리액트 짱! 컴포넌트 와우!!</div>}
+      back="This is Cool as Hell!"
+      spineWidth="50px"
+    />
+    <Book
+      width="300px"
+      height="450px"
+      front={<img src="/logo512.png" style={{ width: "100%", height: "100%" }} alt="book" />}
+      inside1={<div>리액트 짱! 컴포넌트 와우!!</div>}
+      back="This is Cool as Hell!"
+      spineWidth="50px"
+    />
+    <Book
+      width="300px"
+      height="450px"
+      front={<img src="/logo512.png" style={{ width: "100%", height: "100%" }} alt="book" />}
+      inside1={<div>리액트 짱! 컴포넌트 와우!!</div>}
+      back="This is Cool as Hell!"
+      spineWidth="50px"
+    />
   </Container>
 )
 

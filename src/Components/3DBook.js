@@ -1,14 +1,18 @@
 import React from "react"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
 const Container = styled.section`
   transform-style: preserve-3d;
   position: relative;
   color: white;
-  animation: rotate 3s;
+  animation: rotate 3s forwards;
+  width: ${(props) => (props.width ? props.width : "!00px")};
+  height: ${(props) => (props.height ? props.height : "150px")};
+
   @keyframes rotate {
     to {
-      transform: rotateY(-360deg);
+      transform: rotateY(180deg);
     }
   }
 `
@@ -18,7 +22,6 @@ const Front = styled.div`
   width: ${(props) => (props.width ? props.width : "100px")};
   height: ${(props) => (props.height ? props.height : "150px")};
   background-color: black;
-  border: solid 2px white;
   color: white;
 
   :hover {
@@ -40,7 +43,7 @@ const Back = styled.div`
   width: ${(props) => (props.width ? props.width : "100px")};
   height: ${(props) => (props.height ? props.height : "150px")};
   background-color: black;
-  border: solid 2px white;
+
   transform: translateZ(
     ${(props) => (props.spineWidth ? `calc(${props.spineWidth}*-1)` : "-30px")}
   );
@@ -51,7 +54,7 @@ const Left = styled.div`
   width: calc(${(props) => (props.spineWidth ? props.spineWidth : "30px")});
   height: ${(props) => (props.height ? props.height : "150px")};
   background-color: grey;
-  border: solid 2px white;
+
   transform: rotateY(90deg)
     translateX(${(props) => (props.spineWidth ? `calc(${props.spineWidth} /2)` : "15px")})
     translateZ(${(props) => (props.spineWidth ? `calc(${props.spineWidth} /-2)` : "15px")});
@@ -66,6 +69,7 @@ const Inside1 = styled.div`
     translateZ(${(props) => (props.width ? `calc(${props.width} / -20)` : "-5px")});
   background-color: white;
   border-radius: 0 3px 3px 0;
+  color: black;
 `
 
 const Inside2 = styled.div`
@@ -123,20 +127,19 @@ const Inside6 = styled.div`
   border-radius: 0 3px 3px 0;
 `
 
-const Book = ({ width = "200px", height = "300px", spineWidth = "30px", topWidth, leftWidth }) => {
+const Book = ({ width = "100px", height = "150px", spineWidth = "50px", front, inside1, back }) => {
   return (
-    <Container>
+    <Container width={width} height={height}>
       <Front width={width} height={height} spineWidth={spineWidth}>
-        front
+        {front}
       </Front>
       <Inside1 width={width} height={height} spineWidth={spineWidth}>
-        asdsad
+        {inside1}
       </Inside1>
       <Inside2 width={width} height={height} spineWidth={spineWidth}></Inside2>
       <Inside3 width={width} height={height} spineWidth={spineWidth}></Inside3>
       <Inside4 width={width} height={height} spineWidth={spineWidth}></Inside4>
       <Inside5 width={width} height={height} spineWidth={spineWidth}></Inside5>
-      <Inside6 width={width} height={height} spineWidth={spineWidth}></Inside6>
 
       <Back width={width} height={height} spineWidth={spineWidth}>
         back
@@ -146,6 +149,15 @@ const Book = ({ width = "200px", height = "300px", spineWidth = "30px", topWidth
       </Left>
     </Container>
   )
+}
+
+Book.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  spineWidth: PropTypes.string,
+  front: PropTypes.element,
+  inside: PropTypes.element,
+  back: PropTypes.element,
 }
 
 export default Book
